@@ -1,0 +1,2 @@
+C:\Users\amile\Documents\vs2019\Str_array\Debug\Str_array.exe
+C:\Users\amile\Documents\vs2019\Str_array\Debug\Str_array.pdb

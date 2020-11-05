@@ -27,7 +27,7 @@ void swap(struct elem* E1, struct elem* E2)
 	}
 }
 
-int Str_list::size()
+long long Str_list::size()
 {
 	return s;
 }
@@ -76,17 +76,15 @@ void Str_list::push_back(const char* el)
 	s++;
 }
 
-void Str_list::push_back(Str_list S)
+void Str_list::push_back(Str_list *S)
 {
-	struct elem* el = S.Lbegin;
-	while (el != S.Lend)
+	struct elem* el = (*S).Lbegin;
+	while (el != (*S).Lend)
 	{
 		this->push_back(el->el);
 		el = el->next;
-		s++;
 	}
-	this->push_back(S.Lend->el);
-	s++;
+	this->push_back((*S).Lend->el);
 }
 
 void Str_list::push_elem(const char* el, int i)
@@ -136,7 +134,7 @@ void Str_list::push_elem(const char* el, int i)
 void Str_list::pop_elem(int i)
 {
 	if (i < 0 || i >= s || this->empty())
-		return;
+		return ;
 	else if (s == 1)
 	{
 		delete Lbegin;
@@ -211,10 +209,8 @@ struct elem* Str_list::end()
 
 void Str_list::clear()
 {
-	while (Lbegin)
+	while (s > 0)
 		pop_elem(0);
-	Lend = nullptr;
-	s = 0;
 }
 
 char* Str_list::operator[](int i)

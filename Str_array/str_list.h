@@ -12,18 +12,18 @@ class Str_list
 private:
 	struct elem* Lbegin;
 	struct elem* Lend;
-	int s;
+	long long s;
 public:
 	Str_list();//Конструктор создаёт пустой список
 	~Str_list();//Деструктор для "красоты" и удаления пустого списка
 	bool empty();//Проверка на пустоту
 	int index(struct elem* E);//Возвращает индекс элемента. Если нет в данном списке, возвращает -1
 	void push_back(const char* el);//Кладёт 1 элемент в конец
-	void push_back(Str_list S);//Копирует другой список в конец этого
+	void push_back(Str_list *S);//Копирует другой список в конец этого
 	void push_elem(const char* el, int i);//Кладёт элемент с указанным индексом
 	void pop_elem(int i);//Удаляет элемент по индексу. Если такого элемента нет ничего не делает
 	void pop_elem(struct elem *e);//Удаляет элемент из списка по ссылке. Если его нет в списке ничего не делает
-	int size();//Возвращает длинну списка
+	long long size();//Возвращает длинну списка
 	void clear();//Очищает список
 	void sort(bool (*s)(struct elem *E1, struct elem* E2));//сортирует массви по функции s
 

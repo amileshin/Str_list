@@ -1,2 +1,4 @@
-﻿  Str_array.cpp
+﻿  str_list.cpp
+C:\Users\amile\Documents\vs2019\Str_array\str_list.cpp(221): warning C4172: возвращение адреса локальной или временной переменной : el
+C:\Users\amile\Documents\vs2019\Str_array\str_list.cpp(308): warning C4172: возвращение адреса локальной или временной переменной : i
   Str_array.vcxproj -> C:\Users\amile\Documents\vs2019\Str_array\Debug\Str_array.exe

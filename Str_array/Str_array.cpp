@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <fstream>
 #include "str_list.h"
 
 #define clс "\033[2J\033[0;0H"
@@ -52,7 +53,7 @@ int main()
 			Str_listIterator P = S.begin();
 			cout << *P << "\n\n";
 		}
-		cout << "Print:\n-push to add string(char*) to back;\n-add to add string(char*) to Str_list by index;\n-pop to delete element from Str_list by index;\n-iterator to create Iterator;\n-clear to clean list;\n-sort to sort list;\n-exit to exit by program;\n";
+		cout << "Print:\n-size to get size Str_list;\n-get to get from file;\n-push to add string(char*) to back;\n-add to add string(char*) to Str_list by index;\n-pop to delete element from Str_list by index;\n-iterator to create Iterator;\n-clear to clean list;\n-sort to sort list;\n-exit to exit by program;\n";
 		cin >> com;
 		if (com == "iterator" && S.empty())
 		{
@@ -112,6 +113,58 @@ int main()
 				cout << clс;
 			}
 			com = "";
+		}
+		else if (com == "size")
+		{
+			string a;
+			cout << S.size() << "\nWrite anything to continue: ";
+			cin >> a;
+		}
+		else if (com == "get")
+		{
+			string c, f;
+			cout << "What are you want to do:\n-get to get Str_list at file\n-cat to cat with Str_list from file\n";
+			cin >> c;
+			cout << "Enter file name: ";
+			cin >> f;
+			ifstream fin (f);
+			if (fin)
+			{
+				if (c == "get")
+				{
+					S.clear();
+					while (fin)
+					{
+						char a[255];
+						fin >> a;
+						S.push_back(a);
+					}
+				}
+				else if (c == "cat")
+				{
+					Str_list L;
+					while (fin)
+					{
+						char a[255];
+						fin >> a;
+						L.push_back(a);
+					}
+					cout << "S:" << (S.end() == nullptr) << "  L:" << (L.end() == nullptr) << endl;
+					S.push_back(&L);
+				}
+				else
+				{
+					string a;
+					cout << "Wrong command\nWrite anything to continue: ";
+					cin >> a;
+				}
+			}
+			else
+			{
+				string a;
+				cout <<'"' << f << "\"cannot be opened\nWrite anything to continue: ";
+				cin >> a;
+			}
 		}
 		else if (com == "add")
 		{

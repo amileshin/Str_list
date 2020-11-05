@@ -1,4 +1,4 @@
-Debug/
-.vs/
-*.sln
-*.vcxproj*
+Str_array/Debug/
+Str_array/.vs/
+Str_array/*.sln
+Str_array/*.vcxproj*
